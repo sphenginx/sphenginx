@@ -1,0 +1,7 @@
+<snippet>
+    <content><![CDATA[\$begin_memory = round(memory_get_usage(true) / 1048576, 2);
+]]></content>
+    <tabTrigger>memory</tabTrigger>
+    <scope></scope>
+    <description>内存消耗</description>
+</snippet>

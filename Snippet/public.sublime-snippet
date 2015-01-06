@@ -1,0 +1,11 @@
+<snippet>
+    <content><![CDATA[/**
+* 
+* 
+* @var string
+*/
+public \$_var;]]></content>
+    <tabTrigger>public</tabTrigger>
+    <scope>source.php</scope>
+    <description>public lh"…"</description>
+</snippet>

@@ -1,0 +1,17 @@
+<snippet>
+    <content><![CDATA[/**
+ * 
+ * @author Sphenginx(cuiyuleidiy@gmail.com)
+ * @param 
+ * @return
+ *
+ */
+public function ${0:FunctionName}(${3:\$${4:value}${5:=''}})
+{
+	
+}
+]]></content>
+    <tabTrigger>fun</tabTrigger>
+    <scope>source.php</scope>
+    <description>function …</description>
+</snippet>
