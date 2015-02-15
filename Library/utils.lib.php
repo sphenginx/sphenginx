@@ -74,7 +74,8 @@ class utils
         }
     }
 
-    static function stripslashes_array($value){
+    static function stripslashes_array($value)
+    {
         if(empty($value)){
             return $value;
         }else{
@@ -98,7 +99,8 @@ class utils
     }
 
 
-    static function _apath(&$array,$path,&$ret){
+    static function _apath(&$array, $path, &$ret)
+    {
         $key = array_shift($path);
         if( ($p1 = strpos($key,'[')) && ($p2 = strrpos($key,']'))){
             $predicates = substr($key,$p1+1,$p2-$p1-1);
@@ -159,7 +161,8 @@ class utils
         }
     }
 
-    static function apath( &$array, $map ){
+    static function apath( &$array, $map )
+    {
         if(self::_apath($array,$map,$ret) !== false){
             return $ret;
         }else{
@@ -167,8 +170,8 @@ class utils
         }
     }
 
-    static function unapath(&$array,$col,$path,&$ret){
-
+    static function unapath(&$array,$col,$path,&$ret)
+    {
         if( !array_key_exists($col,$array) )
             return false;
         $ret = '';
@@ -197,7 +200,8 @@ class utils
 
     }
 
-    static function array_path($array, $path){
+    static function array_path($array, $path)
+    {
         $path_array = explode('/', $path);
         $_code = '$return = $array';
         if($path_array){
@@ -256,7 +260,8 @@ class utils
 	 *
 	 * @return void
 	 **/
-    static function cp($src,$dst){
+    static function cp($src,$dst)
+    {
         if(is_dir($src)){
             $obj = dir($src);
             while(($file = $obj->read()) !== false){
@@ -346,8 +351,9 @@ class utils
         return $ret;
     }
 
-    // 原func_ext.php中的 array_change_key
-    static function &array_change_key(&$items, $key, $is_resultset_array=false){
+    // array_change_key
+    static function &array_change_key(&$items, $key, $is_resultset_array=false)
+    {
             if (is_array($items)){
                 $result = array();
                 if (!empty($key) && is_string($key)) {
@@ -366,7 +372,8 @@ class utils
     
     
     //配送公式验算function
-    static function cal_fee($exp,$weight,$totalmoney,$first_price,$continue_price,$defPrice=0){
+    static function cal_fee($exp,$weight,$totalmoney,$first_price,$continue_price,$defPrice=0)
+    {
         if($str=trim($exp)){
             $dprice = 0;
             $weight = $weight + 0;
@@ -395,7 +402,8 @@ class utils
         }
     }
 
-    static function mydate($f,$d=null){
+    static function mydate($f,$d=null)
+    {
         global $_dateCache;
         if(!$d)$d=time();
         if(!isset($_dateCache[$d][$f])){
@@ -419,7 +427,9 @@ class utils
             return 0;
         }
     }
-    function _getceil($expval){
+
+    function _getceil($expval)
+    {
         if($expval = trim($expval)){
         eval("\$expval = $expval;");
         if ($expval > 0){
@@ -432,7 +442,8 @@ class utils
         }
     }
     
-    static function steprange($start,$end,$step){
+    static function steprange($start,$end,$step)
+    {
         if($end-$start){
             if($step<2)$step=2;
             $s = ($end - $start)/$step;
@@ -468,7 +479,7 @@ class utils
             }
             return $string;
         }
-    }//End Function
+    }
 
     static function array_ksort_recursive($data, $sort_flags=SORT_STRING) 
     {
@@ -479,14 +490,15 @@ class utils
             }
         }
         return $data;
-    }//End Function
+    }
 
     static function array_md5($array, $sort_flags=SORT_STRING) 
     {
         return md5(serialize(self::array_ksort_recursive($array, $sort_flags)));
-    }//End Function
+    }
 
-    static function gzdecode($data) {
+    static function gzdecode($data) 
+    {
         $len = strlen($data);
         if ($len < 18 || strcmp(substr($data,0,2),"\x1f\x8b")) {
            return null; // Not GZIP format (See RFC 1952)
@@ -636,8 +648,27 @@ class utils
         return $result;
     }
 
+    // 过滤输入
+    static function _filter_input($data)
+    {
+        if(is_array($data)){
+            foreach($data as $key=>$v){
+                $data[$key] = self::_filter_input($data[$key]);
+            }
+        }else{
+            if(strlen($data)){
+                $data = self::_RemoveXSS($data);
+            }else{
+                $data = $data;
+            }
+        }
+        return $data;
+    }
+
+
     //过滤用户输入的数据，防范xss攻击
-    public function _RemoveXSS($val) {
+    static function _RemoveXSS($val) 
+    {
         // remove all non-printable characters. CR(0a) and LF(0b) and TAB(9) are allowed
         // this prevents some character re-spacing such as <java\0script>
         // note that you have to handle splits with \n, \r, and \t later since they *are* allowed in some inputs
@@ -692,21 +723,6 @@ class utils
         return $val;
     }
 
-    static function _filter_input($data){
-        if(is_array($data)){
-            foreach($data as $key=>$v){
-                $data[$key] = self::_filter_input($data[$key]);
-            }
-        }else{
-            if(strlen($data)){
-                $data = self::_RemoveXSS($data);
-            }else{
-                $data = $data;
-            }
-        }
-        return $data;
-    }
-
     //过滤CRLF注入攻击
     static function _filter_crlf($url)
     {
@@ -721,21 +737,4 @@ class utils
         $url = trim($url);
         return $url;
     }
-
-    /**
-     * Check url to be used as internal
-     *
-     * @param   string $url
-     * @return  bool
-     */
-    static function _isInternalUrl($url){
-        if(strpos($url, 'http') !== false){
-            // Url must start from base url
-            if(strpos($url, kernel::base_url(1)) === 0 ){
-                return true;
-            }
-        }
-        return false;
-    }
-
 }
