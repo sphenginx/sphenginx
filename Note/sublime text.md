@@ -98,7 +98,7 @@ SublimeText 还有编辑状态恢复的能力，即当你修改了一个文件�
 
 
 *	2、用Package Control安装其他插件
->	按下Ctrl+Shift+P调出命令面板，输入Package control（或PC）就可以选择插件的安装、管理、删除等操作，因为sublime text 3的插件需要基于pyhone 3编写，所以用sublime text 2的安装方法不管用，可以看看我之前写的一篇文章，[Sublime text 3如何安装package control办法](http://dengo.org/archives/594)。
+>	按下Ctrl+Shift+P调出命令面板，输入Package control（或PC）就可以选择插件的安装、管理、删除等操作，因为sublime text 3的插件需要基于pyhone 3编写，所以用sublime text 2的安装方法不管用，可以看看网友写的一篇文章，[Sublime text 3如何安装package control办法](http://dengo.org/archives/594)。
 
 >	此外，安装sublime text 3的插件还可以在github上下载源文件，解压后改名放到
 
