@@ -1,0 +1,23 @@
+<snippet>
+	<content><![CDATA[
+/***
+ *  .--,       .--,
+ * ( (  \.---./  ) )
+ *  '.__/o   o\__.'
+ *     {=  ^  =}
+ *      >  -  <
+ *     /       \
+ *    //       \\
+ *   //|   .   |\\
+ *   "'\       /'"_.-~^`'-.
+ *      \  _  /--'         `
+ *    ___)( )(___
+ *   (((__) (__)))    高山仰止,景行行止.虽不能至,心向往之。
+ */
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>com_jerry</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope></scope>
+	<description>jerry</description>
+</snippet>

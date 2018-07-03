@@ -1,0 +1,42 @@
+<snippet>
+	<content><![CDATA[
+/***
+ * 1只羊 == one sheep
+ * 2只羊 == two sheeps
+ * 3只羊 == three sheeps
+ * 4只羊 == four sheeps
+ * 5只羊 == five sheeps
+ * 6只羊 == six sheeps
+ * 7只羊 == seven sheeps
+ * 8只羊 == eight sheeps
+ * 9只羊 == nine sheeps
+ * 10只羊 == ten sheeps
+ * 11只羊 == eleven sheeps
+ * 12只羊 == twelve sheeps
+ * 13只羊 == thirteen sheeps
+ * 14只羊 == fourteen sheeps
+ * 15只羊 == fifteen sheeps
+ * 16只羊 == sixteen sheeps
+ * 17只羊 == seventeen sheeps
+ * 18只羊 == eighteen sheeps
+ * 19只羊 == nineteen sheeps
+ * 20只羊 == twenty sheeps
+ * 21只羊 == twenty one sheeps
+ * 22只羊 == twenty two sheeps
+ * 23只羊 == twenty three sheeps
+ * 24只羊 == twenty four sheeps
+ * 25只羊 == twenty five sheeps
+ * 26只羊 == twenty six sheeps
+ * 27只羊 == twenty seven sheeps
+ * 28只羊 == twenty eight sheeps
+ * 29只羊 == twenty nine sheeps
+ * 30只羊 == thirty sheeps
+ * 现在瞌睡了吧，好了，不要再改下面的代码了，睡觉咯~~
+ */
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>com_sheep</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope></scope>
+	<description>just count sheep</description>
+</snippet>

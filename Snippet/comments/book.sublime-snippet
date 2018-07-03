@@ -1,0 +1,20 @@
+<snippet>
+	<content><![CDATA[
+/***
+ *                 .-~~~~~~~~~-._       _.-~~~~~~~~~-.
+ *             __.'              ~.   .~              `.__
+ *           .'//                  \./                  \\`.
+ *         .'//                     |                     \\`.
+ *       .'// .-~"""""""~~~~-._     |     _,-~~~~"""""""~-. \\`.
+ *     .'//.-"                 `-.  |  .-'                 "-.\\`.
+ *   .'//______.============-..   \ | /   ..-============.______\\`.
+ * .'______________________________\|/______________________________`.
+ *
+ */
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>com_book</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope></scope>
+	<description>comments with keyboard</description>
+</snippet>

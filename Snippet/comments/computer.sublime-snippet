@@ -1,0 +1,29 @@
+<snippet>
+	<content><![CDATA[
+/***
+ *              ,----------------,              ,---------,
+ *         ,-----------------------,          ,"        ,"|
+ *       ,"                      ,"|        ,"        ,"  |
+ *      +-----------------------+  |      ,"        ,"    |
+ *      |  .-----------------.  |  |     +---------+      |
+ *      |  |                 |  |  |     | -==----'|      |
+ *      |  |  I LOVE DOS!    |  |  |     |         |      |
+ *      |  |  Bad command or |  |  |/----|`---=    |      |
+ *      |  |  C:\>_          |  |  |   ,/|==== ooo |      ;
+ *      |  |                 |  |  |  // |(((( [33]|    ,"
+ *      |  `-----------------'  |," .;'| |((((     |  ,"
+ *      +-----------------------+  ;;  | |         |,"
+ *         /_)______________(_/  //'   | +---------+
+ *    ___________________________/___  `,
+ *   /  oooooooooooooooo  .o.  oooo /,   \,"-----------
+ *  / ==ooooooooooooooo==.o.  ooo= //   ,`\--{)B     ,"
+ * /_==__==========__==_ooo__ooo=_/'   /___________,"
+ *
+ */
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>com_com</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope></scope>
+	<description>comments with keyboard</description>
+</snippet>

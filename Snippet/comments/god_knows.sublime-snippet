@@ -1,0 +1,13 @@
+<snippet>
+	<content><![CDATA[
+/***
+ * When I wrote this, only God and I understood what I was doing
+ * Now, God only knows
+ */
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>com_god</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope></scope>
+	<description>只有上帝知道是干啥的</description>
+</snippet>
