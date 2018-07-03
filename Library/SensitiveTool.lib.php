@@ -24,7 +24,12 @@
  **************************************************************
  */
 /**
- * PHP基于DFA算法过滤敏感词类
+ * PHP基于DFA算法过滤敏感词类:
+ *
+ *     在实现文字过滤的算法中，DFA是唯一比较好的实现算法。DFA即Deterministic Finite Automaton，也就是确定有穷自动机，
+ * 它是是通过event和当前的state得到下一个state，即event+state=nextstate。
+ * 
+ * 参考文档：https://blog.csdn.net/chenssy/article/details/26961957
  *
  * @package lib
  * @author Sphenginx
