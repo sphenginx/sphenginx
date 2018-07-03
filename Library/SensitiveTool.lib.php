@@ -33,18 +33,18 @@
  **/
 class SensitiveTool
 {
-	//hashMap列表
+    //hashMap列表
     private static $arrHashMap = array();
 
- 	/**
- 	 * 获取敏感词map表
- 	 *
- 	 * @return array
- 	 * @author Sphenginx
- 	 **/
+    /**
+     * 获取敏感词map表
+     *
+     * @return array
+     * @author Sphenginx
+     **/
     public static function getHashMap() 
     {
-    	return self::$arrHashMap;
+        return self::$arrHashMap;
     }
 
 
@@ -58,17 +58,17 @@ class SensitiveTool
      **/
     public static function setHashMap($hashmap) 
     {
-    	self::$arrHashMap = $hashmap;
+        self::$arrHashMap = $hashmap;
     }
  
- 	/**
- 	 * 新增敏感词符
- 	 *
- 	 * @param string $strWord 新增关键字
- 	 *
- 	 * @return void
- 	 * @author Sphenginx
- 	 **/
+    /**
+     * 新增敏感词符
+     *
+     * @param string $strWord 新增关键字
+     *
+     * @return void
+     * @author Sphenginx
+     **/
     public static function addKeyWord($strWord) 
     {
         $len = mb_strlen($strWord, 'UTF-8');
@@ -97,14 +97,14 @@ class SensitiveTool
         }
     }
  
- 	/**
- 	 * 查询是否存在敏感词
- 	 *
- 	 * @param string $strWord 需要过滤的字符串(只匹配一次)
- 	 *
- 	 * @return boolean
- 	 * @author Sphenginx
- 	 **/
+    /**
+     * 查询是否存在敏感词
+     *
+     * @param string $strWord 需要过滤的字符串(只匹配一次)
+     *
+     * @return boolean
+     * @author Sphenginx
+     **/
     public static function searchKey($strWord) 
     {
         $len = mb_strlen($strWord, 'UTF-8');
@@ -135,10 +135,10 @@ class SensitiveTool
      **/
     public static function filterWord($str, $replace = '*') 
     {
-    	$len = mb_strlen($str, 'UTF-8');
-    	$arrHashMap = self::$arrHashMap;
-    	$matchStr = '';
-    	for ($i=0; $i < $len; $i++) {
+        $len = mb_strlen($str, 'UTF-8');
+        $arrHashMap = self::$arrHashMap;
+        $matchStr = '';
+        for ($i=0; $i < $len; $i++) {
             $word = mb_substr($str, $i, 1, 'UTF-8');
             $matchStr .= $word;
             if (!isset($arrHashMap[$word])) {
@@ -148,8 +148,8 @@ class SensitiveTool
                 continue;
             }
             if ($arrHashMap[$word]['end']) {
-            	$str = str_ireplace($matchStr, str_repeat($replace, mb_strlen($matchStr,'utf-8')), $str);
-            	$matchStr = '';
+                $str = str_ireplace($matchStr, str_repeat($replace, mb_strlen($matchStr,'utf-8')), $str);
+                $matchStr = '';
                 $arrHashMap = self::$arrHashMap;
                 continue;
             }
