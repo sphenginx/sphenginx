@@ -28,6 +28,8 @@
  *
  *     在实现文字过滤的算法中，DFA是唯一比较好的实现算法。DFA即Deterministic Finite Automaton，也就是确定有穷自动机，
  * 它是是通过event和当前的state得到下一个state，即event+state=nextstate。
+ *
+ * 注：PHP 版本 > 5.6
  * 
  * 参考文档：https://blog.csdn.net/chenssy/article/details/26961957
  *
@@ -39,7 +41,7 @@
 class SensitiveTool
 {
     //hashMap列表
-    private static $arrHashMap = array();
+    private static $arrHashMap = [];
 
     /**
      * 获取敏感词map表
@@ -49,7 +51,7 @@ class SensitiveTool
      **/
     public static function getHashMap() 
     {
-        return self::$arrHashMap;
+        return static::$arrHashMap;
     }
 
 
@@ -63,7 +65,7 @@ class SensitiveTool
      **/
     public static function setHashMap($hashmap) 
     {
-        self::$arrHashMap = $hashmap;
+        static::$arrHashMap = $hashmap;
     }
  
     /**
@@ -79,7 +81,7 @@ class SensitiveTool
         $len = mb_strlen($strWord, 'UTF-8');
  
         // 传址
-        $arrHashMap = &self::$arrHashMap;
+        $arrHashMap = &static::$arrHashMap;
         for ($i=0; $i < $len; $i++) {
             $word = mb_substr($strWord, $i, 1, 'UTF-8');
             // 已存在
@@ -113,12 +115,12 @@ class SensitiveTool
     public static function searchKey($strWord) 
     {
         $len = mb_strlen($strWord, 'UTF-8');
-        $arrHashMap = self::$arrHashMap;
+        $arrHashMap = static::$arrHashMap;
         for ($i=0; $i < $len; $i++) {
             $word = mb_substr($strWord, $i, 1, 'UTF-8');
             if (!isset($arrHashMap[$word])) {
                 // reset hashmap
-                $arrHashMap = self::$arrHashMap;
+                $arrHashMap = static::$arrHashMap;
                 continue;
             }
             if ($arrHashMap[$word]['end']) {
@@ -141,21 +143,21 @@ class SensitiveTool
     public static function filterWord($str, $replace = '*') 
     {
         $len = mb_strlen($str, 'UTF-8');
-        $arrHashMap = self::$arrHashMap;
+        $arrHashMap = static::$arrHashMap;
         $matchStr = '';
         for ($i=0; $i < $len; $i++) {
             $word = mb_substr($str, $i, 1, 'UTF-8');
             $matchStr .= $word;
             if (!isset($arrHashMap[$word])) {
                 // reset hashmap
-                $arrHashMap = self::$arrHashMap;
+                $arrHashMap = static::$arrHashMap;
                 $matchStr = '';
                 continue;
             }
             if ($arrHashMap[$word]['end']) {
                 $str = str_ireplace($matchStr, str_repeat($replace, mb_strlen($matchStr,'utf-8')), $str);
                 $matchStr = '';
-                $arrHashMap = self::$arrHashMap;
+                $arrHashMap = static::$arrHashMap;
                 continue;
             }
             $arrHashMap = $arrHashMap[$word];
