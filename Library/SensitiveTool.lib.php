@@ -182,3 +182,48 @@ class SensitiveTool
         return $msg;
     }
 }
+
+/***
+ *              ,----------------,              ,---------,
+ *         ,-----------------------,          ,"        ,"|
+ *       ,"                      ,"|        ,"        ,"  |
+ *      +-----------------------+  |      ,"        ,"    |
+ *      |  .-----------------.  |  |     +---------+      |
+ *      |  |                 |  |  |     | -==----'|      |
+ *      |  |  I LOVE DOS!    |  |  |     |         |      |
+ *      |  |  Bad command or |  |  |/----|`---=    |      |
+ *      |  |  C:\>_          |  |  |   ,/|==== ooo |      ;
+ *      |  |                 |  |  |  // |(((( [33]|    ,"
+ *      |  `-----------------'  |," .;'| |((((     |  ,"
+ *      +-----------------------+  ;;  | |         |,"
+ *         /_)______________(_/  //'   | +---------+
+ *    ___________________________/___  `,
+ *   /  oooooooooooooooo  .o.  oooo /,   \,"-----------
+ *  / ==ooooooooooooooo==.o.  ooo= //   ,`\--{)B     ,"
+ * /_==__==========__==_ooo__ooo=_/'   /___________,"
+ *
+ *  以下是demo:
+ */
+//构建敏感词库
+SensitiveTool::addKeyWord('王八蛋');
+SensitiveTool::addKeyWord('王八羔子');
+SensitiveTool::addKeyWord('香烟');
+SensitiveTool::addKeyWord('狗儿子');
+echo "<pre>";print_r(SensitiveTool::getHashMap());echo "</pre>";
+
+//待过虑数据
+$readyFilterData = [
+    '王八蛋快点滚',
+    '王八',
+    'CNMLGBD，王八蛋狗儿子滚出去',
+    '二手香烟危害更大！',
+];
+
+//过滤后的数据
+$filterData = [];
+foreach ($readyFilterData as $key => $data) {
+    $filterData[] = SensitiveTool::filterWord($data);
+}
+
+echo "<pre>";print_r($readyFilterData);echo "</pre>";
+echo "<pre>";print_r($filterData);echo "</pre>";
